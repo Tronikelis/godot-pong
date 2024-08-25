@@ -12,15 +12,14 @@ func _ready() -> void:
 
 func _on_area_entered(area: PongWall) -> void:
 	assert(area is PongWall)
+	SignalBus.pong_ball_collided.emit(self, area)
 
 	direction = direction.bounce((-area.position).normalized())
 
-	if area.type == PongWall.Type.PLAYER:
+	if area.type == area.Type.PLAYER || area.type == area.Type.ENEMY:
 		bounces = 0
 	else:
 		bounces += 1
-
-	pass
 
 
 func _physics_process(delta: float) -> void:

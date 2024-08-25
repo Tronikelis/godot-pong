@@ -5,6 +5,7 @@ enum Type {
 	WALL,
 	DEATH,
 	PLAYER,
+	ENEMY,
 }
 
 @export var type := Type.WALL
