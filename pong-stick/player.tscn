@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwpm5tgb08kx"]
+
+[ext_resource type="PackedScene" uid="uid://4ed744cyn2kw" path="res://pong-stick/pong_stick.tscn" id="1_2rfmc"]
+[ext_resource type="Script" path="res://pong-stick/player.gd" id="2_s175y"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("2_s175y")
+
+[node name="PongStick" parent="." instance=ExtResource("1_2rfmc")]

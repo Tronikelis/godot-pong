@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4wtsmpr6j2i3"]
+
+[ext_resource type="PackedScene" uid="uid://bwpm5tgb08kx" path="res://pong-stick/player.tscn" id="2_35aqr"]
+[ext_resource type="PackedScene" uid="uid://bkyrhrhi1jx85" path="res://pong_ball.tscn" id="2_x2he5"]
+[ext_resource type="PackedScene" uid="uid://bohlwmoqe1smo" path="res://pong-wall/pong_wall.tscn" id="3_d0kfh"]
+[ext_resource type="PackedScene" uid="uid://b8q1fgk0b64tm" path="res://pong-stick/enemy.tscn" id="3_o04qd"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Up" parent="Walls" instance=ExtResource("3_d0kfh")]
+position = Vector2(8, -317)
+scale = Vector2(111.466, 0.30802)
+
+[node name="Right" parent="Walls" instance=ExtResource("3_d0kfh")]
+position = Vector2(576, -84)
+scale = Vector2(0.9014, -51.16)
+type = 1
+
+[node name="Left" parent="Walls" instance=ExtResource("3_d0kfh")]
+position = Vector2(-581, -47)
+scale = Vector2(0.9014, -51.16)
+type = 1
+
+[node name="Down" parent="Walls" instance=ExtResource("3_d0kfh")]
+position = Vector2(2, 310)
+scale = Vector2(111.466, 0.30802)
+
+[node name="Sticks" type="Node" parent="."]
+
+[node name="Player" parent="Sticks" instance=ExtResource("2_35aqr")]
+position = Vector2(-544, 0)
+speed = 600
+
+[node name="PongWall" parent="Sticks/Player" instance=ExtResource("3_d0kfh")]
+z_index = -1
+position = Vector2(6, 1)
+scale = Vector2(1, 4.6)
+type = 2
+
+[node name="Enemy" parent="Sticks" node_paths=PackedStringArray("pong_ball") instance=ExtResource("3_o04qd")]
+position = Vector2(537, -2)
+pong_ball = NodePath("../../PongBall")
+
+[node name="PongWall" parent="Sticks/Enemy" instance=ExtResource("3_d0kfh")]
+z_index = -1
+position = Vector2(-10, 0)
+scale = Vector2(0.620255, 4.70684)
+type = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PongBall" parent="." instance=ExtResource("2_x2he5")]
+position = Vector2(0, -1)
+speed = 400

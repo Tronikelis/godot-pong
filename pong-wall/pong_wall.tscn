@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bohlwmoqe1smo"]
+
+[ext_resource type="Script" path="res://pong-wall/pong_wall.gd" id="1_ueeyo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnisb"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0p4fi"]
+
+[node name="PongWall" type="Area2D"]
+script = ExtResource("1_ueeyo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cnisb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_0p4fi")
