@@ -49,6 +49,7 @@ type = 2
 [node name="Enemy" parent="Sticks" node_paths=PackedStringArray("pong_ball") instance=ExtResource("3_o04qd")]
 position = Vector2(537, -2)
 pong_ball = NodePath("../../PongBall")
+speed = 400
 
 [node name="PongWall" parent="Sticks/Enemy" instance=ExtResource("3_d0kfh")]
 z_index = -1
